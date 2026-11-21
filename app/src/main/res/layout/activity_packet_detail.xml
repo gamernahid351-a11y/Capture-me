@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgDark">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- ══ HEADER INFO ══ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="6dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Channel:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvChannel" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/textPrimary"
+                            android:textSize="12sp" android:fontFamily="monospace"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Direction:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvDirection" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textSize="12sp" android:fontFamily="monospace"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Type:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvType" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="#FFD54F"
+                            android:textSize="12sp" android:fontFamily="monospace"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Msg:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvMsgName" android:layout_width="0dp"
+                            android:layout_weight="1" android:layout_height="wrap_content"
+                            android:textColor="#90CAF9" android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Time:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvTimestamp" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/textSecondary"
+                            android:textSize="11sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="Length:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvLength" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/textPrimary"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                            android:text="AES:" android:textColor="#888" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvAesUsed" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="#A5D6A7"
+                            android:textSize="12sp" android:fontFamily="monospace"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ RAW HEX ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="RAW HEX" android:textColor="#888" android:textSize="11sp"
+                android:layout_marginBottom="2dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp" app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp">
+                <TextView android:id="@+id/tvRawHex"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#B0BEC5" android:textSize="11sp"
+                    android:fontFamily="monospace" android:padding="8dp"
+                    android:textIsSelectable="true"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ DECRYPTED ══ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDecrypted"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp" app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:padding="8dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="🔓 DECRYPTED" android:textColor="#A5D6A7" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvDecryptedHex"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#A5D6A7" android:textSize="11sp"
+                        android:fontFamily="monospace" android:textIsSelectable="true"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ PROTOBUF ══ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProtobuf"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp" app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:padding="8dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="📦 PROTOBUF (flat)" android:textColor="#CE93D8"
+                        android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvProtobuf"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#CE93D8" android:textSize="11sp"
+                        android:fontFamily="monospace" android:textIsSelectable="true"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ DEEP SCAN ══ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDeepScan"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp" app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:padding="8dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="🔍 DEEP SCAN" android:textColor="#FFD54F" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvDeepScan"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#FFD54F" android:textSize="11sp"
+                        android:fontFamily="monospace" android:textIsSelectable="true"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ EDITABLE RAW FIELDS ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="✏ EDITABLE FIELDS" android:textColor="#888" android:textSize="11sp"
+                android:layout_marginBottom="2dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- ══ RAW HEX EDIT ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="✏ RAW HEX EDIT (direct)" android:textColor="#888" android:textSize="11sp"
+                android:layout_marginTop="8dp" android:layout_marginBottom="2dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRawEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#B0BEC5"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:maxLines="10"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ══ SEND PANEL ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="🚀 SEND / RESEND" android:textColor="#888" android:textSize="11sp"
+                android:layout_marginTop="10dp" android:layout_marginBottom="4dp"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:hint="Target Host"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_marginEnd="4dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTargetHost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="12sp"
+                        android:inputType="text"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Port"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTargetPort"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="12sp"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchEncrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Encrypt body with session key"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp"
+                android:layout_marginVertical="4dp"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendUdp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Send UDP"
+                    app:backgroundTint="#E65100"
+                    android:layout_marginEnd="4dp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendTcp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Send TCP"
+                    app:backgroundTint="#0D47A1"/>
+            </LinearLayout>
+
+            <!-- padding at bottom -->
+            <View android:layout_width="match_parent" android:layout_height="32dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

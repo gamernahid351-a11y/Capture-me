@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mehedi Capture</string>
+    <string name="channel_http">HTTP</string>
+    <string name="channel_tcp">TCP</string>
+    <string name="channel_udp">UDP</string>
+    <string name="send_udp">Send UDP</string>
+    <string name="send_tcp">Send TCP</string>
+    <string name="target_host">Target Host</string>
+    <string name="target_port">Port</string>
+    <string name="encrypt_session">Encrypt (session key)</string>
+</resources>

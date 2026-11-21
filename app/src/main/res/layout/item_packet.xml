@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="6dp"
+    android:layout_marginVertical="2dp"
+    app:cardBackgroundColor="@color/bgCard"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Channel color indicator -->
+        <View
+            android:id="@+id/channelIndicator"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:minHeight="48dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Row 1: seq / channel / direction / type -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvSeq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#888"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:minWidth="36dp"/>
+
+                <TextView
+                    android:id="@+id/tvChannel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/tag_bg"
+                    android:paddingHorizontal="4dp"
+                    android:layout_marginStart="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:layout_marginStart="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#E0E0E0"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+
+            <!-- Row 2: msg name / url -->
+            <TextView
+                android:id="@+id/tvMsgName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#90CAF9"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp"/>
+
+            <!-- Row 3: decrypted hint + length -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDecrypted"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#A5D6A7"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/tvLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

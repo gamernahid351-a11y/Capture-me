@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgDark">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@android:color/white"
+            app:title="Mehedi Capture" />
+
+        <!-- Stats bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/tvVpnStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="○ Stopped"
+                android:textColor="#FF5252"
+                android:textSize="12sp"
+                android:paddingStart="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPacketCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 packets"
+                android:textColor="@color/textSecondary"
+                android:textSize="11sp"
+                android:paddingEnd="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HTTP:0  TCP:0  UDP:0  Keys:0  0KB"
+            android:textColor="@color/textSecondary"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:padding="4dp"
+            android:paddingStart="8dp"
+            android:background="@color/colorPrimaryDark"/>
+
+        <!-- Filter chips -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:background="@color/colorPrimary">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                app:singleSelection="true"/>
+        </HorizontalScrollView>
+
+        <!-- Search bar -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search type, msg_name, hex…"
+                android:textColor="@color/textPrimary"
+                android:textColorHint="@color/textSecondary"
+                android:textSize="12sp"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Packet list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"/>
+
+    <!-- FAB: start/stop VPN -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabVpn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:contentDescription="Start/Stop VPN"
+        android:src="@drawable/ic_vpn"
+        app:backgroundTint="@color/colorAccent"
+        app:tint="@android:color/white"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

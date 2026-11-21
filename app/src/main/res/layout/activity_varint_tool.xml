@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bgDark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        app:title="Varint / ZigZag Tool"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- ── ENCODE ── -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="ENCODE  var(v) / zz(v)" android:textColor="#FFD54F"
+                android:textSize="13sp" android:layout_marginBottom="6dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Decimal or 0x hex value"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEncodeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textPrimary"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEncodeVarint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Encode"
+                android:layout_marginVertical="6dp"
+                app:backgroundTint="#1B5E20"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp">
+                <TextView
+                    android:id="@+id/tvEncodeResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Result will appear here"
+                    android:textColor="#A5D6A7"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:padding="10dp"
+                    android:textIsSelectable="true"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ── DECODE ── -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="DECODE  bytes → value" android:textColor="#FFD54F"
+                android:textSize="13sp" android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hex bytes (e.g. 8c 04)"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDecodeHex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textPrimary"
+                    android:fontFamily="monospace"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDecodeVarint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Decode"
+                android:layout_marginVertical="6dp"
+                app:backgroundTint="#0D47A1"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp">
+                <TextView
+                    android:id="@+id/tvDecodeResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Result will appear here"
+                    android:textColor="#90CAF9"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:padding="10dp"
+                    android:textIsSelectable="true"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ── BUILD MARK INFO ── -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="BUILD  build_mark_info() + serialize_packet()" android:textColor="#FFD54F"
+                android:textSize="13sp" android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="owner_id"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_marginEnd="4dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkOwnerId" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="1000000000"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="TarPlayID"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkTarPlay" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="2000000000"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="MarkerType"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_marginEnd="4dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkType" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="1"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="MarkFlag"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_marginEnd="4dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkFlag" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="0"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="ScannerFlag"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkScanFlag" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="0"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="seq"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_marginEnd="4dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkSeq" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="1"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="flags"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMarkFlags" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="number"
+                        android:textColor="@color/textPrimary" android:text="0"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBuildMark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Build mark_info packet"
+                android:layout_marginVertical="8dp"
+                app:backgroundTint="#4A148C"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bgCard"
+                app:cardCornerRadius="4dp">
+                <TextView
+                    android:id="@+id/tvMarkResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Build output will appear here"
+                    android:textColor="#CE93D8"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:padding="10dp"
+                    android:textIsSelectable="true"/>
+            </androidx.cardview.widget.CardView>
+
+            <View android:layout_width="match_parent" android:layout_height="32dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

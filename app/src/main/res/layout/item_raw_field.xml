@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="1dp"
+    android:layout_marginHorizontal="0dp"
+    app:cardBackgroundColor="#0D1B2A"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:gravity="center_vertical">
+
+        <!-- Field number badge -->
+        <TextView
+            android:id="@+id/tvFieldNum"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:text="F1"
+            android:textColor="#FFD54F"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:gravity="center"/>
+
+        <!-- Wire type -->
+        <TextView
+            android:id="@+id/tvWireType"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="W0"
+            android:textColor="#888"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:gravity="center"/>
+
+        <!-- Type tag -->
+        <TextView
+            android:id="@+id/tvFieldType"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:text="varint"
+            android:textColor="#4CAF50"
+            android:textSize="10sp"
+            android:fontFamily="monospace"/>
+
+        <!-- Editable value -->
+        <EditText
+            android:id="@+id/etFieldValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#E0E0E0"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:background="@android:color/transparent"
+            android:padding="4dp"
+            android:singleLine="true"
+            android:scrollHorizontally="true"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

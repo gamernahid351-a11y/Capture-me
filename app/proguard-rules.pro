@@ -1,0 +1,7 @@
+-keep class com.ffcapture.model.** { *; }
+-keep class com.ffcapture.decoder.** { *; }
+-keepattributes *Annotation*
+-keep class com.google.gson.** { *; }
+-keep class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
+-dontwarn javax.naming.**
